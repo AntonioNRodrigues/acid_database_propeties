@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  app:
+    image: openjdk:latest
+    container_name: springboot_app
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
+    command: ./gradlew bootRun
+    depends_on:
+      - db
+  db:
+    image: oscarfonts/h2
+    container_name: h2_database
+    ports:
+      - "9092:9092"
+      - "8082:8082"
+    environment:
+      - H2_OPTIONS=-ifNotExists
