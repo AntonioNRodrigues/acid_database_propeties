@@ -1,4 +1,4 @@
-# acid_database_properties
+# ACID
 
 A small Spring Boot application that demonstrates the **ACID** properties of a relational
 database through a minimal banking use case: transferring money between two accounts.
