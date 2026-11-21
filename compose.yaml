@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   app:
-    image: openjdk:latest
+    image: eclipse-temurin:25-jdk
     container_name: springboot_app
     build:
       context: .
@@ -9,7 +9,7 @@ services:
       - "8080:8080"
     volumes:
       - .:/app
-    command: ./gradlew bootRun
+    command: mvn spring-boot:run
     depends_on:
       - db
   db:
